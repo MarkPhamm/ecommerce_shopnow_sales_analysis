@@ -7,7 +7,7 @@ WITH customer_stats AS (
     GROUP BY customer_id
 ),
 
--- Step 1: Calculate per-customer Average Order Value
+-- Calculate per-customer Average Order Value
 customer_aov AS (
     SELECT
         customer_id,
@@ -17,7 +17,7 @@ customer_aov AS (
     FROM customer_stats
 ),
 
--- Step 2: Calculate purchase frequency for each customer
+-- Calculate purchase frequency for each customer
 purchase_freq AS (
     SELECT
         customer_id,
@@ -28,7 +28,7 @@ purchase_freq AS (
     FROM customer_aov
 )
 
--- Step 3: Calculate CLV and assign segment
+-- Calculate CLV and assign segment
 SELECT
     customer_id,
     printf('$%.2f', avg_order_value) AS avg_order_value,

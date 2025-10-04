@@ -1,4 +1,4 @@
--- 1. Identify the first purchase month for each customer (cohort)
+-- Identify the first purchase month for each customer (cohort)
 WITH first_order AS (
     SELECT
         customer_id,
@@ -7,7 +7,7 @@ WITH first_order AS (
     GROUP BY customer_id
 ),
 
--- 2. Assign cohort month and calculate period_index for each order
+-- Assign cohort month and calculate period_index for each order
 orders_with_cohort AS (
     SELECT
         e.customer_id,
@@ -20,7 +20,7 @@ orders_with_cohort AS (
     JOIN first_order f ON e.customer_id = f.customer_id
 )
 
--- 3. Count returning customers per cohort over time
+-- Count returning customers per cohort over time
 SELECT
     cohort_month,
     period_index,

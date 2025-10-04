@@ -1,5 +1,5 @@
 WITH customer_stats AS (
-    -- Step 1: Calculate total orders and total revenue per customer
+    -- Calculate total orders and total revenue per customer
     SELECT 
         customer_id,
         COUNT(DISTINCT order_id) AS total_orders,
@@ -9,7 +9,7 @@ WITH customer_stats AS (
 ),
 
 customer_aov AS (
-    -- Step 2: Calculate Average Order Value (AOV)
+    -- Calculate Average Order Value (AOV)
     SELECT
         customer_id,
         ROUND(total_revenue * 1.0 / total_orders, 2) AS avg_order_value,
@@ -19,7 +19,7 @@ customer_aov AS (
 ),
 
 purchase_freq AS (
-    -- Step 3: Calculate Purchase Frequency for each customer
+    -- Calculate Purchase Frequency for each customer
     SELECT
         customer_id,
         avg_order_value,
@@ -30,7 +30,7 @@ purchase_freq AS (
 ),
 
 clv_calc AS (
-    -- Step 4: Calculate CLV
+    -- Calculate CLV
     SELECT
         customer_id,
         avg_order_value,
@@ -39,7 +39,7 @@ clv_calc AS (
     FROM purchase_freq
 )
 
--- Step 5: Assign segment and recommended action
+-- Assign segment and recommended action
 SELECT
     customer_id,
     printf('$%.0f', avg_order_value) AS AOV,

@@ -4,7 +4,7 @@ WITH analysis_date AS (
     FROM ecommerce
 ),
 
--- 1. Calculate R, F, M for each customer
+-- Calculate R, F, M for each customer
 rfm_base AS (
     SELECT 
         e.customer_id,
@@ -20,7 +20,7 @@ rfm_base AS (
     GROUP BY e.customer_id
 ),
 
--- 2. Assign R, F, M scores (scale 1–5 using quintiles)
+-- Assign R, F, M scores (scale 1–5 using quintiles)
 rfm_scores AS (
     SELECT
         customer_id,
@@ -39,7 +39,7 @@ rfm_scores AS (
     FROM rfm_base
 )
 
--- 3. Compute total RFM score and assign customer segment
+-- Compute total RFM score and assign customer segment
 SELECT 
     customer_id,
     recency,
