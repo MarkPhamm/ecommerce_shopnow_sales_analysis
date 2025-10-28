@@ -1,5 +1,5 @@
 # E-Commerce Customer Analytics
-Analyzed 5,000+ orders from 500 ShopNow customers (2019–2024) using SQL and Power BI to uncover customer behavior, segment high-value buyers, calculate CLV, and track retention – turning insights into targeted marketing and retention strategies.
+TLDR: Analyzed 5,000+ orders from 500 ShopNow customers (2019–2024) using SQL and Power BI to uncover customer behavior, segment high-value buyers, calculate CLV, and track retention – turning insights into targeted marketing and retention strategies.
 
 ## 1. Overview
 Scope: 5,000+ orders from 500 customers across multiple product categories.
